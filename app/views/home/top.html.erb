@@ -1,15 +1,43 @@
 <!DOCTIPE HTML>
 <html>
     <head>
-            <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> 
     </head>
     <body>
         <h1>CSS Animation</h1>
         <div class="content1">
             <h2>①要素をホバーしたときにアニメーションを付ける</h2>
-            <div class="box"></div>
+            <div class="box-hover"></div>
             <h2>これにアニメーションを付けると…</h2>
             <div class="box-animation"></div>
         </div>
+        <div class="content2">
+            <h2>②要素にクラスを付けたり消したりしてアニメーションさせる</h2>
+            <div class="box"></div>
+            <input class="button" type="button" value="要素を動かす">
+            <script type="text/javascript">
+                var $box = $('.box');
+                var $button = $('.button');
+                $button.on('click', function(){
+                    $box.toggleClass('active');
+                });
+            </script>
+        </div>
+        <!-- <div class="content3">
+            <h2>③CSS Transitionを利用したアニメーションのイベントを取得する</h2>
+            <div class="box_trans"></div>
+            アニメーション回数：<span class="count"></span>
+            <script type="text/javascript">
+                var $box_trans = $('.box_trans');
+                var $count = $('.count');
+                var count = 1;
+
+                $box_trans.on('transitionend', function(e){
+                    if (e.originalEvent.propertyName === 'width') {
+                        $state.text(count++);
+                    }
+                });
+            </script>
+        </div> -->
     </body>
 </html>
