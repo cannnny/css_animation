@@ -23,7 +23,7 @@
                 });
             </script>
         </div>
-        <!-- <div class="content3">
+        <div class="content3">
             <h2>③CSS Transitionを利用したアニメーションのイベントを取得する</h2>
             <div class="box_trans"></div>
             アニメーション回数：<span class="count"></span>
@@ -34,10 +34,44 @@
 
                 $box_trans.on('transitionend', function(e){
                     if (e.originalEvent.propertyName === 'width') {
-                        $state.text(count++);
+                        $count.text(count++);
                     }
                 });
             </script>
-        </div> -->
+        </div>
+        <div class="content4">
+            <h2>④CSS Animationを利用したアニメーションを実装する</h2>
+            <div class="box-rotation"></div>
+        </div>
+        <div class="content5">
+            <h2>⑤CSS Animationを利用したアニメーションのイベントを取得する</h2>
+            <div class="box_rotate_event"></div>
+            アニメーション回数：<span class="count_rotate"></span>
+            <input class="button_rotate" type="button" value="アニメーション開始">
+            <script type="text/javascript">
+                var $box_rotate_event = $('.box_rotate_event');
+                var $button_rotate = $('.button_rotate');
+                var $count_rotate = $('.count_rotate');
+                var isAnimate = false;
+                var count_rotate = 0;
+
+                $button_rotate.on('click', function(){
+                    if (isAnimate) {
+                        return;
+                    }
+                    $button_rotate.val('アニメーション中');
+                    $box_rotate_event.addClass('animation');
+                    isAnimate = true;
+                });
+
+                $box_rotate_event.on('animationend', function(){
+                    count_rotate++;
+                    $button_rotate.val('アニメーション開始');
+                    $box_rotate_event.removeClass('animation');
+                    $count_rotate.text(count_rotate);
+                    isAnimate = false;
+                });
+            </script>
+        </div>
     </body>
 </html>
