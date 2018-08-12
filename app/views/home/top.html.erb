@@ -32,7 +32,7 @@
                 var $count = $('.count');
                 var count = 1;
 
-                $box_trans.on('transitionend', function(e){
+                $box_trans.on('transitionend webkitTransitionEnd', function(e){
                     if (e.originalEvent.propertyName === 'width') {
                         $count.text(count++);
                     }
@@ -64,7 +64,7 @@
                     isAnimate = true;
                 });
 
-                $box_rotate_event.on('animationend', function(){
+                $box_rotate_event.on('animationend webkitTransitionEnd', function(){
                     count_rotate++;
                     $button_rotate.val('アニメーション開始');
                     $box_rotate_event.removeClass('animation');
